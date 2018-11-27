@@ -1,7 +1,10 @@
+import resource
 import sys
 import cv2 as cv
 import numpy as np
-sys.setrecursionlimit(2000)
+
+resource.setrlimit(resource.RLIMIT_STACK, [0x10000000, resource.RLIM_INFINITY])
+sys.setrecursionlimit(100000)
 
 out = cv.imread("full_duck.jpg",3)
 Re = cv.imread("Result.jpg",3)
